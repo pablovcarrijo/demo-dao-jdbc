@@ -45,11 +45,11 @@ public class Department implements Serializable{
 			return false;
 		Department other = (Department) obj;
 		return Objects.equals(id, other.id);
-	}
+	} 
 	
 	
 	public String toString() {
-		return "Id: " + getId() + "; Name: " + getName();
+		return "[Id: " + getId() + "; Name: " + getName() + "]";
 	}
 	
 }
