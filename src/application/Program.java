@@ -1,7 +1,11 @@
 package application;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
+import db.DbException;
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
@@ -35,6 +39,13 @@ public class Program {
 			System.out.println(obj);
 		}
 		
+		System.out.println("=== TEST 4 -SELLER INSERT- ===");
+		Seller newSeller = new Seller(null, "Pablo", "pablo.vcarrijo@gmail.com", new Date(), 4000.00, dep);
+		sellerDao.inset(newSeller);
+		System.out.println("Insert with success");
+		
+		
+		
 	}
-	
+
 }
