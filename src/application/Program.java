@@ -28,6 +28,13 @@ public class Program {
 			System.out.println(obj);
 		}
 		
+		System.out.println("=== TEST 3 -FIND ALL- ===");
+		Department depp = new Department(2, null);
+		list = sellerDao.findAll();
+		for(Seller obj : list) {
+			System.out.println(obj);
+		}
+		
 	}
 	
 }
