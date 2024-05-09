@@ -72,13 +72,64 @@ public class SellerDaoJDBC implements SellerDao{
 
 	@Override
 	public void update(Seller seller) {
-		// TODO Auto-generated method stub
+		
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			
+			pst = conn.prepareStatement(
+					
+					"UPDATE seller "
+					+ "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
+					+ "WHERE "
+					+ "Id = ? "
+					+ "ORDER BY Id"
+					);
+			
+			pst.setString(1, seller.getName());
+			pst.setString(2, seller.getEmail());
+			pst.setDate(3, new java.sql.Date(seller.getBirthDate().getTime()));
+			pst.setDouble(4, seller.getBaseSalary());
+			pst.setInt(5, seller.getDepartment().getId());
+			pst.setInt(6, seller.getId());
+			
+			pst.executeUpdate();
+			
+		}
+		catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			Db.closePreparedStatement(pst);
+			Db.closeResultSet(rs);
+		}
 		
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		try {
+			pst = conn.prepareStatement(
+					"DELETE FROM seller "
+					+ "WHERE "
+					+ "Id = ?"
+					);
+			
+			pst.setInt(1, id);
+			pst.executeUpdate();
+			
+		}
+		catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally{
+			Db.closePreparedStatement(pst);
+			Db.closeResultSet(rs);
+		}
 		
 	}
 

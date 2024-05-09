@@ -28,6 +28,11 @@ public class Seller implements Serializable{
 		this.baseSalary = baseSalary;
 		this.department = department;
 	}
+	
+	public Seller(String name, Double BaseSalary) {
+		this.name = name;
+		this.baseSalary = baseSalary;
+	}
 
 	public Integer getId() {
 		return id;

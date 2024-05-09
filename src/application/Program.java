@@ -39,12 +39,21 @@ public class Program {
 			System.out.println(obj);
 		}
 		
+		/*
 		System.out.println("=== TEST 4 -SELLER INSERT- ===");
 		Seller newSeller = new Seller(null, "Pablo", "pablo.vcarrijo@gmail.com", new Date(), 4000.00, dep);
 		sellerDao.inset(newSeller);
-		System.out.println("Insert with success");
+		System.out.println("Insert with success! New id: " + newSeller.getId());
 		
+		System.out.println("=== TEST 5 -SELLER UPDATE- ===");
+		Seller updateSeller = new Seller(35, "Pablo Carrijo", "pablo.vcarrijo@gmail.com", new Date(), 4000.00, dep);
+		sellerDao.update(updateSeller);
+		System.out.println("Update with success!");
+		*/ 
 		
+		System.out.println("=== TEST 6 -DELETE SELLER- ===");
+		sellerDao.deleteById(39);
+		System.out.println("Deleted with success!");
 		
 	}
 
