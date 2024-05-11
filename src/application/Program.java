@@ -1,11 +1,10 @@
 package application;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 
-import db.DbException;
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
@@ -15,6 +14,8 @@ public class Program {
 
 	public static void main(String[] args) {
 			
+		Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
 		System.out.println("=== TEST 1 -SELLER FIND BY ID- ===");
@@ -39,7 +40,7 @@ public class Program {
 			System.out.println(obj);
 		}
 		
-		/*
+	/*
 		System.out.println("=== TEST 4 -SELLER INSERT- ===");
 		Seller newSeller = new Seller(null, "Pablo", "pablo.vcarrijo@gmail.com", new Date(), 4000.00, dep);
 		sellerDao.inset(newSeller);
@@ -49,11 +50,15 @@ public class Program {
 		Seller updateSeller = new Seller(35, "Pablo Carrijo", "pablo.vcarrijo@gmail.com", new Date(), 4000.00, dep);
 		sellerDao.update(updateSeller);
 		System.out.println("Update with success!");
-		*/ 
+		*/
 		
 		System.out.println("=== TEST 6 -DELETE SELLER- ===");
-		sellerDao.deleteById(39);
+		System.out.print("Enter id for delete: ");
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
 		System.out.println("Deleted with success!");
+		
+		sc.close();
 		
 	}
 

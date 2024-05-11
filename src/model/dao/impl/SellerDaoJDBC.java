@@ -113,11 +113,7 @@ public class SellerDaoJDBC implements SellerDao{
 		ResultSet rs = null;
 		
 		try {
-			pst = conn.prepareStatement(
-					"DELETE FROM seller "
-					+ "WHERE "
-					+ "Id = ?"
-					);
+			pst = conn.prepareStatement("DELETE FROM seller WHERE Id = ?");
 			
 			pst.setInt(1, id);
 			pst.executeUpdate();
