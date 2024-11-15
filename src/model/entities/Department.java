@@ -1,8 +1,11 @@
 package model.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Department {
+public class Department implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
 	private String name;
@@ -38,7 +41,7 @@ public class Department {
 	}
 	
 	public String toString() {
-		return "Id: " + getId() + " - Name: " + getName();
+		return "Id: " + getId() + " - Department: " + getName();
 	}
 
 }
