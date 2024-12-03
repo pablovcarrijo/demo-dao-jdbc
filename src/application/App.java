@@ -1,9 +1,11 @@
 package application;
 
 import java.sql.Connection;
+import java.util.Date;
 
 import db.DB;
 import model.entitites.Department;
+import model.entitites.Seller;
 
 public class App {
 
@@ -11,8 +13,10 @@ public class App {
 		Connection conn = DB.getConnection();
 		DB.closeConnection();
 		
-		Department dep = new Department(1, "Books");
-		System.out.println(dep);
+		Department obj = new Department(1, "Books");
+		
+		Seller seller = new Seller(21, "Bob", "bob@gmail.com",  new Date(), 3000.0, obj);
+		System.out.println(seller);
 	}
 
 }
